@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.mycompany.smartfridge;
+option java_package = "com.mycompany.smartfridge";
+option java_multiple_files = true;
+
+service TempService{
+    rpc temp(TempRequest) returns (TempReply) {}
+}
+
+message TempRequest {
+    string input = 1;
+}
+
+message TempReply {
+    string output = 1;
+}
