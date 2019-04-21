@@ -1,24 +1,24 @@
 package com.mycompany.smartfridge;
 
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
+import static io.grpc.stub.ClientCalls.blockingUnaryCall;
+import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.7.0)",
+    value = "by gRPC proto compiler (version 1.19.0)",
     comments = "Source: fridgetemp.proto")
 public final class TempServiceGrpc {
 
@@ -27,19 +27,37 @@ public final class TempServiceGrpc {
   public static final String SERVICE_NAME = "com.mycompany.smartfridge.TempService";
 
   // Static method descriptors that strictly reflect the proto.
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.mycompany.smartfridge.TempRequest,
-      com.mycompany.smartfridge.TempReply> METHOD_TEMP =
-      io.grpc.MethodDescriptor.<com.mycompany.smartfridge.TempRequest, com.mycompany.smartfridge.TempReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "com.mycompany.smartfridge.TempService", "temp"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.mycompany.smartfridge.TempRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.mycompany.smartfridge.TempReply.getDefaultInstance()))
-          .setSchemaDescriptor(new TempServiceMethodDescriptorSupplier("temp"))
-          .build();
+  private static volatile io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest,
+      com.mycompany.smartfridge.Fridgetemp.TempReply> getTempMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "temp",
+      requestType = com.mycompany.smartfridge.Fridgetemp.TempRequest.class,
+      responseType = com.mycompany.smartfridge.Fridgetemp.TempReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest,
+      com.mycompany.smartfridge.Fridgetemp.TempReply> getTempMethod() {
+    io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest, com.mycompany.smartfridge.Fridgetemp.TempReply> getTempMethod;
+    if ((getTempMethod = TempServiceGrpc.getTempMethod) == null) {
+      synchronized (TempServiceGrpc.class) {
+        if ((getTempMethod = TempServiceGrpc.getTempMethod) == null) {
+          TempServiceGrpc.getTempMethod = getTempMethod = 
+              io.grpc.MethodDescriptor.<com.mycompany.smartfridge.Fridgetemp.TempRequest, com.mycompany.smartfridge.Fridgetemp.TempReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "com.mycompany.smartfridge.TempService", "temp"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mycompany.smartfridge.Fridgetemp.TempRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.mycompany.smartfridge.Fridgetemp.TempReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new TempServiceMethodDescriptorSupplier("temp"))
+                  .build();
+          }
+        }
+     }
+     return getTempMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -70,19 +88,19 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public void temp(com.mycompany.smartfridge.TempRequest request,
-        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.TempReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_TEMP, responseObserver);
+    public void temp(com.mycompany.smartfridge.Fridgetemp.TempRequest request,
+        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getTempMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            METHOD_TEMP,
+            getTempMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.mycompany.smartfridge.TempRequest,
-                com.mycompany.smartfridge.TempReply>(
+                com.mycompany.smartfridge.Fridgetemp.TempRequest,
+                com.mycompany.smartfridge.Fridgetemp.TempReply>(
                   this, METHODID_TEMP)))
           .build();
     }
@@ -108,10 +126,10 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public void temp(com.mycompany.smartfridge.TempRequest request,
-        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.TempReply> responseObserver) {
+    public void temp(com.mycompany.smartfridge.Fridgetemp.TempRequest request,
+        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_TEMP, getCallOptions()), request, responseObserver);
+          getChannel().newCall(getTempMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -135,9 +153,9 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public com.mycompany.smartfridge.TempReply temp(com.mycompany.smartfridge.TempRequest request) {
+    public com.mycompany.smartfridge.Fridgetemp.TempReply temp(com.mycompany.smartfridge.Fridgetemp.TempRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_TEMP, getCallOptions(), request);
+          getChannel(), getTempMethod(), getCallOptions(), request);
     }
   }
 
@@ -161,10 +179,10 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.mycompany.smartfridge.TempReply> temp(
-        com.mycompany.smartfridge.TempRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.mycompany.smartfridge.Fridgetemp.TempReply> temp(
+        com.mycompany.smartfridge.Fridgetemp.TempRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_TEMP, getCallOptions()), request);
+          getChannel().newCall(getTempMethod(), getCallOptions()), request);
     }
   }
 
@@ -188,8 +206,8 @@ public final class TempServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_TEMP:
-          serviceImpl.temp((com.mycompany.smartfridge.TempRequest) request,
-              (io.grpc.stub.StreamObserver<com.mycompany.smartfridge.TempReply>) responseObserver);
+          serviceImpl.temp((com.mycompany.smartfridge.Fridgetemp.TempRequest) request,
+              (io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -252,7 +270,7 @@ public final class TempServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TempServiceFileDescriptorSupplier())
-              .addMethod(METHOD_TEMP)
+              .addMethod(getTempMethod())
               .build();
         }
       }
