@@ -21,7 +21,7 @@ public class TempServer {
         //start the server
         server.start();
 
-        System.out.println("Server started on port 50001");
+        System.out.println("Server started on port 8080");
 
         server.awaitTermination();
     }

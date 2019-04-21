@@ -4,12 +4,13 @@ package com.mycompany.smartfridge;
 
 service TempService{
     rpc temp(TempRequest) returns (TempReply);
+    rpc increasetemp(TempRequest) returns (TempReply);
 }
 
 message TempRequest {
-    string name = 1;
+    int32 temp = 1;
 }
 
 message TempReply {
-    string greeting = 1;
+    string output = 1;
 }

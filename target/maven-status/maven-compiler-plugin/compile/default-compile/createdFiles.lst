@@ -1,6 +1,7 @@
 com\mycompany\smartfridge\TempServer.class
 com\mycompany\smartfridge\TempServiceGrpc$TempServiceFutureStub.class
 com\mycompany\smartfridge\TempServiceGrpc$TempServiceBlockingStub.class
+com\mycompany\smartfridge\TempClient.class
 com\mycompany\smartfridge\TempServiceGrpc$TempServiceBaseDescriptorSupplier.class
 com\mycompany\smartfridge\Fridgetemp$TempRequest$Builder.class
 com\mycompany\smartfridge\Fridgetemp$TempRequestOrBuilder.class
@@ -16,6 +17,7 @@ com\mycompany\smartfridge\Fridgetemp$TempRequest.class
 com\mycompany\smartfridge\TempServiceGrpc.class
 com\mycompany\smartfridge\Fridgetemp$TempReply$1.class
 com\mycompany\smartfridge\Fridgetemp.class
+com\mycompany\smartfridge\TempIncreaseClient.class
 com\mycompany\smartfridge\TempServiceGrpc$TempServiceMethodDescriptorSupplier.class
 com\mycompany\smartfridge\Fridgetemp$TempReply$Builder.class
 com\mycompany\smartfridge\TempServiceGrpc$TempServiceImplBase.class

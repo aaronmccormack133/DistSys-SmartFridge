@@ -19,7 +19,7 @@ public class TempServiceImpl extends TempServiceGrpc.TempServiceImplBase{
 
         //builder to construct new Protobuffer object
         Fridgetemp.TempReply response = Fridgetemp.TempReply.newBuilder()
-            .setGreeting("Temp is: " + request.getName())
+            .setOutput("Temperature of the fridge is: " + request.getTemp() + " degrees celsius")
             .build();
 
         //Use response Observer to send a single response back

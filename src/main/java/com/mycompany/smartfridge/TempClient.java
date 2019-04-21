@@ -20,7 +20,7 @@ public class TempClient {
         
         TempServiceGrpc.TempServiceBlockingStub stub = TempServiceGrpc.newBlockingStub(channel);
         Fridgetemp.TempRequest request = Fridgetemp.TempRequest.newBuilder()
-                .setName("10")
+                .setTemp(2)
                 .build();
         
         Fridgetemp.TempReply response = stub.temp(request);

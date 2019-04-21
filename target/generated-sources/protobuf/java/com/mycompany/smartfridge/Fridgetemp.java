@@ -19,14 +19,9 @@ public final class Fridgetemp {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 temp = 1;</code>
      */
-    java.lang.String getName();
-    /**
-     * <code>string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    int getTemp();
   }
   /**
    * Protobuf type {@code com.mycompany.smartfridge.TempRequest}
@@ -41,7 +36,6 @@ public final class Fridgetemp {
       super(builder);
     }
     private TempRequest() {
-      name_ = "";
     }
 
     @java.lang.Override
@@ -68,10 +62,9 @@ public final class Fridgetemp {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              temp_ = input.readInt32();
               break;
             }
             default: {
@@ -106,38 +99,13 @@ public final class Fridgetemp {
               com.mycompany.smartfridge.Fridgetemp.TempRequest.class, com.mycompany.smartfridge.Fridgetemp.TempRequest.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    public static final int TEMP_FIELD_NUMBER = 1;
+    private int temp_;
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 temp = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getTemp() {
+      return temp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -154,8 +122,8 @@ public final class Fridgetemp {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      if (temp_ != 0) {
+        output.writeInt32(1, temp_);
       }
       unknownFields.writeTo(output);
     }
@@ -166,8 +134,9 @@ public final class Fridgetemp {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      if (temp_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, temp_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -184,8 +153,8 @@ public final class Fridgetemp {
       }
       com.mycompany.smartfridge.Fridgetemp.TempRequest other = (com.mycompany.smartfridge.Fridgetemp.TempRequest) obj;
 
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (getTemp()
+          != other.getTemp()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -197,8 +166,8 @@ public final class Fridgetemp {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TEMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTemp();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -332,7 +301,7 @@ public final class Fridgetemp {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        name_ = "";
+        temp_ = 0;
 
         return this;
       }
@@ -360,7 +329,7 @@ public final class Fridgetemp {
       @java.lang.Override
       public com.mycompany.smartfridge.Fridgetemp.TempRequest buildPartial() {
         com.mycompany.smartfridge.Fridgetemp.TempRequest result = new com.mycompany.smartfridge.Fridgetemp.TempRequest(this);
-        result.name_ = name_;
+        result.temp_ = temp_;
         onBuilt();
         return result;
       }
@@ -409,9 +378,8 @@ public final class Fridgetemp {
 
       public Builder mergeFrom(com.mycompany.smartfridge.Fridgetemp.TempRequest other) {
         if (other == com.mycompany.smartfridge.Fridgetemp.TempRequest.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
+        if (other.getTemp() != 0) {
+          setTemp(other.getTemp());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -442,71 +410,28 @@ public final class Fridgetemp {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private int temp_ ;
       /**
-       * <code>string name = 1;</code>
+       * <code>int32 temp = 1;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getTemp() {
+        return temp_;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>int32 temp = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
+      public Builder setTemp(int value) {
+        
+        temp_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>int32 temp = 1;</code>
        */
-      public Builder clearName() {
+      public Builder clearTemp() {
         
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
+        temp_ = 0;
         onChanged();
         return this;
       }
@@ -568,14 +493,14 @@ public final class Fridgetemp {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string greeting = 1;</code>
+     * <code>string output = 1;</code>
      */
-    java.lang.String getGreeting();
+    java.lang.String getOutput();
     /**
-     * <code>string greeting = 1;</code>
+     * <code>string output = 1;</code>
      */
     com.google.protobuf.ByteString
-        getGreetingBytes();
+        getOutputBytes();
   }
   /**
    * Protobuf type {@code com.mycompany.smartfridge.TempReply}
@@ -590,7 +515,7 @@ public final class Fridgetemp {
       super(builder);
     }
     private TempReply() {
-      greeting_ = "";
+      output_ = "";
     }
 
     @java.lang.Override
@@ -620,7 +545,7 @@ public final class Fridgetemp {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              greeting_ = s;
+              output_ = s;
               break;
             }
             default: {
@@ -655,34 +580,34 @@ public final class Fridgetemp {
               com.mycompany.smartfridge.Fridgetemp.TempReply.class, com.mycompany.smartfridge.Fridgetemp.TempReply.Builder.class);
     }
 
-    public static final int GREETING_FIELD_NUMBER = 1;
-    private volatile java.lang.Object greeting_;
+    public static final int OUTPUT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object output_;
     /**
-     * <code>string greeting = 1;</code>
+     * <code>string output = 1;</code>
      */
-    public java.lang.String getGreeting() {
-      java.lang.Object ref = greeting_;
+    public java.lang.String getOutput() {
+      java.lang.Object ref = output_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        greeting_ = s;
+        output_ = s;
         return s;
       }
     }
     /**
-     * <code>string greeting = 1;</code>
+     * <code>string output = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getGreetingBytes() {
-      java.lang.Object ref = greeting_;
+        getOutputBytes() {
+      java.lang.Object ref = output_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        greeting_ = b;
+        output_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -703,8 +628,8 @@ public final class Fridgetemp {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getGreetingBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, greeting_);
+      if (!getOutputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, output_);
       }
       unknownFields.writeTo(output);
     }
@@ -715,8 +640,8 @@ public final class Fridgetemp {
       if (size != -1) return size;
 
       size = 0;
-      if (!getGreetingBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, greeting_);
+      if (!getOutputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, output_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -733,8 +658,8 @@ public final class Fridgetemp {
       }
       com.mycompany.smartfridge.Fridgetemp.TempReply other = (com.mycompany.smartfridge.Fridgetemp.TempReply) obj;
 
-      if (!getGreeting()
-          .equals(other.getGreeting())) return false;
+      if (!getOutput()
+          .equals(other.getOutput())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -746,8 +671,8 @@ public final class Fridgetemp {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + GREETING_FIELD_NUMBER;
-      hash = (53 * hash) + getGreeting().hashCode();
+      hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getOutput().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -881,7 +806,7 @@ public final class Fridgetemp {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        greeting_ = "";
+        output_ = "";
 
         return this;
       }
@@ -909,7 +834,7 @@ public final class Fridgetemp {
       @java.lang.Override
       public com.mycompany.smartfridge.Fridgetemp.TempReply buildPartial() {
         com.mycompany.smartfridge.Fridgetemp.TempReply result = new com.mycompany.smartfridge.Fridgetemp.TempReply(this);
-        result.greeting_ = greeting_;
+        result.output_ = output_;
         onBuilt();
         return result;
       }
@@ -958,8 +883,8 @@ public final class Fridgetemp {
 
       public Builder mergeFrom(com.mycompany.smartfridge.Fridgetemp.TempReply other) {
         if (other == com.mycompany.smartfridge.Fridgetemp.TempReply.getDefaultInstance()) return this;
-        if (!other.getGreeting().isEmpty()) {
-          greeting_ = other.greeting_;
+        if (!other.getOutput().isEmpty()) {
+          output_ = other.output_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -991,71 +916,71 @@ public final class Fridgetemp {
         return this;
       }
 
-      private java.lang.Object greeting_ = "";
+      private java.lang.Object output_ = "";
       /**
-       * <code>string greeting = 1;</code>
+       * <code>string output = 1;</code>
        */
-      public java.lang.String getGreeting() {
-        java.lang.Object ref = greeting_;
+      public java.lang.String getOutput() {
+        java.lang.Object ref = output_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          greeting_ = s;
+          output_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string greeting = 1;</code>
+       * <code>string output = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getGreetingBytes() {
-        java.lang.Object ref = greeting_;
+          getOutputBytes() {
+        java.lang.Object ref = output_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          greeting_ = b;
+          output_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string greeting = 1;</code>
+       * <code>string output = 1;</code>
        */
-      public Builder setGreeting(
+      public Builder setOutput(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        greeting_ = value;
+        output_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string greeting = 1;</code>
+       * <code>string output = 1;</code>
        */
-      public Builder clearGreeting() {
+      public Builder clearOutput() {
         
-        greeting_ = getDefaultInstance().getGreeting();
+        output_ = getDefaultInstance().getOutput();
         onChanged();
         return this;
       }
       /**
-       * <code>string greeting = 1;</code>
+       * <code>string output = 1;</code>
        */
-      public Builder setGreetingBytes(
+      public Builder setOutputBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        greeting_ = value;
+        output_ = value;
         onChanged();
         return this;
       }
@@ -1132,11 +1057,13 @@ public final class Fridgetemp {
   static {
     java.lang.String[] descriptorData = {
       "\n\020fridgetemp.proto\022\031com.mycompany.smartf" +
-      "ridge\"\033\n\013TempRequest\022\014\n\004name\030\001 \001(\t\"\035\n\tTe" +
-      "mpReply\022\020\n\010greeting\030\001 \001(\t2c\n\013TempService" +
-      "\022T\n\004temp\022&.com.mycompany.smartfridge.Tem" +
-      "pRequest\032$.com.mycompany.smartfridge.Tem" +
-      "pReplyb\006proto3"
+      "ridge\"\033\n\013TempRequest\022\014\n\004temp\030\001 \001(\005\"\033\n\tTe" +
+      "mpReply\022\016\n\006output\030\001 \001(\t2\301\001\n\013TempService\022" +
+      "T\n\004temp\022&.com.mycompany.smartfridge.Temp" +
+      "Request\032$.com.mycompany.smartfridge.Temp" +
+      "Reply\022\\\n\014increasetemp\022&.com.mycompany.sm" +
+      "artfridge.TempRequest\032$.com.mycompany.sm" +
+      "artfridge.TempReplyb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1155,13 +1082,13 @@ public final class Fridgetemp {
     internal_static_com_mycompany_smartfridge_TempRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mycompany_smartfridge_TempRequest_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Temp", });
     internal_static_com_mycompany_smartfridge_TempReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_mycompany_smartfridge_TempReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_mycompany_smartfridge_TempReply_descriptor,
-        new java.lang.String[] { "Greeting", });
+        new java.lang.String[] { "Output", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
