@@ -7,6 +7,8 @@
 package com.mycompany.smartfridge;
 
 import io.grpc.stub.StreamObserver;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -28,17 +30,15 @@ public class TempServiceImpl extends TempServiceGrpc.TempServiceImplBase{
         // call oncompleted when its done
         responseObserver.onCompleted();
     }
-    
-    @Override
-    public void increasetemp(Fridgetemp.TempRequest request, StreamObserver<Fridgetemp.TempReply> responseObserver){
-        System.out.println(request);
-        
-        Fridgetemp.TempReply response = Fridgetemp.TempReply.newBuilder()
-                .setOutput("Increased temp by: " + request.getTemp() + " degrees celsius")
-                .build();
-        
-        responseObserver.onNext(response);
-        
-        responseObserver.onCompleted();
-    }
+//    
+//    @Override
+//    public void decreasetemp(com.google.protobuf.Empty request, StreamObserver<Fridgetemp.Decrease> responseObserver){
+//        Timer t = new Timer();
+//        
+//        t.schedule(new RemindTask(responseObserver), 0, 2000);
+//    }
+//    
+//    class RemindTask extends TimerTask{
+//        
+//    }
 }

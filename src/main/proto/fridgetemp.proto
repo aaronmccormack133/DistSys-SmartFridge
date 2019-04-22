@@ -1,16 +1,21 @@
 syntax = "proto3";
 
 package com.mycompany.smartfridge;
+import "google/protobuf/empty.proto";
 
 service TempService{
     rpc temp(TempRequest) returns (TempReply);
-    rpc increasetemp(TempRequest) returns (TempReply);
+    rpc decreasetemp(google.protobuf.Empty) returns (stream Decrease);
 }
 
 message TempRequest {
-    int32 temp = 1;
+    double temp = 1;
 }
 
 message TempReply {
     string output = 1;
+}
+
+message Decrease{
+    double tempdecrease = 1;
 }

@@ -59,36 +59,36 @@ public final class TempServiceGrpc {
      return getTempMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest,
-      com.mycompany.smartfridge.Fridgetemp.TempReply> getIncreasetempMethod;
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.mycompany.smartfridge.Fridgetemp.Decrease> getDecreasetempMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "increasetemp",
-      requestType = com.mycompany.smartfridge.Fridgetemp.TempRequest.class,
-      responseType = com.mycompany.smartfridge.Fridgetemp.TempReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest,
-      com.mycompany.smartfridge.Fridgetemp.TempReply> getIncreasetempMethod() {
-    io.grpc.MethodDescriptor<com.mycompany.smartfridge.Fridgetemp.TempRequest, com.mycompany.smartfridge.Fridgetemp.TempReply> getIncreasetempMethod;
-    if ((getIncreasetempMethod = TempServiceGrpc.getIncreasetempMethod) == null) {
+      fullMethodName = SERVICE_NAME + '/' + "decreasetemp",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = com.mycompany.smartfridge.Fridgetemp.Decrease.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.mycompany.smartfridge.Fridgetemp.Decrease> getDecreasetempMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.mycompany.smartfridge.Fridgetemp.Decrease> getDecreasetempMethod;
+    if ((getDecreasetempMethod = TempServiceGrpc.getDecreasetempMethod) == null) {
       synchronized (TempServiceGrpc.class) {
-        if ((getIncreasetempMethod = TempServiceGrpc.getIncreasetempMethod) == null) {
-          TempServiceGrpc.getIncreasetempMethod = getIncreasetempMethod = 
-              io.grpc.MethodDescriptor.<com.mycompany.smartfridge.Fridgetemp.TempRequest, com.mycompany.smartfridge.Fridgetemp.TempReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+        if ((getDecreasetempMethod = TempServiceGrpc.getDecreasetempMethod) == null) {
+          TempServiceGrpc.getDecreasetempMethod = getDecreasetempMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.mycompany.smartfridge.Fridgetemp.Decrease>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "com.mycompany.smartfridge.TempService", "increasetemp"))
+                  "com.mycompany.smartfridge.TempService", "decreasetemp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.mycompany.smartfridge.Fridgetemp.TempRequest.getDefaultInstance()))
+                  com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.mycompany.smartfridge.Fridgetemp.TempReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new TempServiceMethodDescriptorSupplier("increasetemp"))
+                  com.mycompany.smartfridge.Fridgetemp.Decrease.getDefaultInstance()))
+                  .setSchemaDescriptor(new TempServiceMethodDescriptorSupplier("decreasetemp"))
                   .build();
           }
         }
      }
-     return getIncreasetempMethod;
+     return getDecreasetempMethod;
   }
 
   /**
@@ -127,9 +127,9 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public void increasetemp(com.mycompany.smartfridge.Fridgetemp.TempRequest request,
-        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getIncreasetempMethod(), responseObserver);
+    public void decreasetemp(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.Decrease> responseObserver) {
+      asyncUnimplementedUnaryCall(getDecreasetempMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -142,12 +142,12 @@ public final class TempServiceGrpc {
                 com.mycompany.smartfridge.Fridgetemp.TempReply>(
                   this, METHODID_TEMP)))
           .addMethod(
-            getIncreasetempMethod(),
-            asyncUnaryCall(
+            getDecreasetempMethod(),
+            asyncServerStreamingCall(
               new MethodHandlers<
-                com.mycompany.smartfridge.Fridgetemp.TempRequest,
-                com.mycompany.smartfridge.Fridgetemp.TempReply>(
-                  this, METHODID_INCREASETEMP)))
+                com.google.protobuf.Empty,
+                com.mycompany.smartfridge.Fridgetemp.Decrease>(
+                  this, METHODID_DECREASETEMP)))
           .build();
     }
   }
@@ -180,10 +180,10 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public void increasetemp(com.mycompany.smartfridge.Fridgetemp.TempRequest request,
-        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getIncreasetempMethod(), getCallOptions()), request, responseObserver);
+    public void decreasetemp(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.Decrease> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getDecreasetempMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -214,9 +214,10 @@ public final class TempServiceGrpc {
 
     /**
      */
-    public com.mycompany.smartfridge.Fridgetemp.TempReply increasetemp(com.mycompany.smartfridge.Fridgetemp.TempRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getIncreasetempMethod(), getCallOptions(), request);
+    public java.util.Iterator<com.mycompany.smartfridge.Fridgetemp.Decrease> decreasetemp(
+        com.google.protobuf.Empty request) {
+      return blockingServerStreamingCall(
+          getChannel(), getDecreasetempMethod(), getCallOptions(), request);
     }
   }
 
@@ -245,18 +246,10 @@ public final class TempServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getTempMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.mycompany.smartfridge.Fridgetemp.TempReply> increasetemp(
-        com.mycompany.smartfridge.Fridgetemp.TempRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getIncreasetempMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_TEMP = 0;
-  private static final int METHODID_INCREASETEMP = 1;
+  private static final int METHODID_DECREASETEMP = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -279,9 +272,9 @@ public final class TempServiceGrpc {
           serviceImpl.temp((com.mycompany.smartfridge.Fridgetemp.TempRequest) request,
               (io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply>) responseObserver);
           break;
-        case METHODID_INCREASETEMP:
-          serviceImpl.increasetemp((com.mycompany.smartfridge.Fridgetemp.TempRequest) request,
-              (io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.TempReply>) responseObserver);
+        case METHODID_DECREASETEMP:
+          serviceImpl.decreasetemp((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<com.mycompany.smartfridge.Fridgetemp.Decrease>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -345,7 +338,7 @@ public final class TempServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TempServiceFileDescriptorSupplier())
               .addMethod(getTempMethod())
-              .addMethod(getIncreasetempMethod())
+              .addMethod(getDecreasetempMethod())
               .build();
         }
       }
