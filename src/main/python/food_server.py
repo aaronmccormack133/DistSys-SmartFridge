@@ -1,30 +1,30 @@
-import grpc # pylint: disable=import-error
+import grpc
 from concurrent import futures
 import time
 
 import contents_pb2 as contents_pb2
 import contents_pb2_grpc as contents_pb2_grpc
 
-class addFoodServicer(contents_pb2_grpc.ContentsServicer):
+class ContentsServicer(contents_pb2_grpc.ContentsServicer):
     def __init__(self, *args, **kwargs):
-        self.server_port = 46001
+        self.server_port = 8080
 
-    def getAddFood(self, request, context):
+    def addfood(self, request, context):
         totalfood = []
         added_food = request.name
 
         totalfood.append(added_food)
 
-        print("added" + added_food)
+        print("added " + added_food)
 
-        return contents_pb2.food(added_food)
+        return contents_pb2.FoodResp(added_food)
 
     def start_server(self):
         fridge_server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
-        contents_pb2_grpc.add_ContentsServicer_to_server(addFoodServicer(), fridge_server)
+        contents_pb2_grpc.add_ContentsServicer_to_server(ContentsServicer(), fridge_server)
 
-        fridge_server.add_insecure_port('[:]:{}'.format(self.server_port))
+        fridge_server.add_insecure_port('[::]:{}'.format(self.server_port))
 
         fridge_server.start()
         print('------------------')
@@ -40,5 +40,5 @@ class addFoodServicer(contents_pb2_grpc.ContentsServicer):
             print('Server stopped')
             print('------------------')
 
-curr_server = addFoodServicer()
+curr_server = ContentsServicer()
 curr_server.start_server()

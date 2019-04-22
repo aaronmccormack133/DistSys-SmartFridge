@@ -17,24 +17,24 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='contents.proto',
-  package='SmartFridge.src.main.python',
+  package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0e\x63ontents.proto\x12\x1bSmartFridge.src.main.python\"\x14\n\x04\x66ood\x12\x0c\n\x04name\x18\x01 \x01(\t2[\n\x08\x43ontents\x12O\n\x07\x61\x64\x64\x66ood\x12!.SmartFridge.src.main.python.food\x1a!.SmartFridge.src.main.python.foodb\x06proto3')
+  serialized_pb=_b('\n\x0e\x63ontents.proto\"\x14\n\x04\x46ood\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x18\n\x08\x46oodResp\x12\x0c\n\x04name\x18\x01 \x01(\t2)\n\x08\x43ontents\x12\x1d\n\x07\x41\x64\x64\x46ood\x12\x05.Food\x1a\t.FoodResp\"\x00\x62\x06proto3')
 )
 
 
 
 
 _FOOD = _descriptor.Descriptor(
-  name='food',
-  full_name='SmartFridge.src.main.python.food',
+  name='Food',
+  full_name='Food',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='SmartFridge.src.main.python.food.name', index=0,
+      name='name', full_name='Food.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -52,38 +52,77 @@ _FOOD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=47,
-  serialized_end=67,
+  serialized_start=18,
+  serialized_end=38,
 )
 
-DESCRIPTOR.message_types_by_name['food'] = _FOOD
+
+_FOODRESP = _descriptor.Descriptor(
+  name='FoodResp',
+  full_name='FoodResp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='FoodResp.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=40,
+  serialized_end=64,
+)
+
+DESCRIPTOR.message_types_by_name['Food'] = _FOOD
+DESCRIPTOR.message_types_by_name['FoodResp'] = _FOODRESP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-food = _reflection.GeneratedProtocolMessageType('food', (_message.Message,), dict(
+Food = _reflection.GeneratedProtocolMessageType('Food', (_message.Message,), dict(
   DESCRIPTOR = _FOOD,
   __module__ = 'contents_pb2'
-  # @@protoc_insertion_point(class_scope:SmartFridge.src.main.python.food)
+  # @@protoc_insertion_point(class_scope:Food)
   ))
-_sym_db.RegisterMessage(food)
+_sym_db.RegisterMessage(Food)
+
+FoodResp = _reflection.GeneratedProtocolMessageType('FoodResp', (_message.Message,), dict(
+  DESCRIPTOR = _FOODRESP,
+  __module__ = 'contents_pb2'
+  # @@protoc_insertion_point(class_scope:FoodResp)
+  ))
+_sym_db.RegisterMessage(FoodResp)
 
 
 
 _CONTENTS = _descriptor.ServiceDescriptor(
   name='Contents',
-  full_name='SmartFridge.src.main.python.Contents',
+  full_name='Contents',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=69,
-  serialized_end=160,
+  serialized_start=66,
+  serialized_end=107,
   methods=[
   _descriptor.MethodDescriptor(
-    name='addfood',
-    full_name='SmartFridge.src.main.python.Contents.addfood',
+    name='AddFood',
+    full_name='Contents.AddFood',
     index=0,
     containing_service=None,
     input_type=_FOOD,
-    output_type=_FOOD,
+    output_type=_FOODRESP,
     serialized_options=None,
   ),
 ])

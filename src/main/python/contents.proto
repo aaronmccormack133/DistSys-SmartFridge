@@ -1,11 +1,13 @@
 syntax = "proto3";
 
-package SmartFridge.src.main.python;
-
 service Contents{
-    rpc addfood(food) returns (food);
+    rpc AddFood(Food) returns (FoodResp) {}
 }
 
-message food{
+message Food{
+    string name = 1;
+}
+
+message FoodResp{
     string name = 1;
 }

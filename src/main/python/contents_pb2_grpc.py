@@ -14,10 +14,10 @@ class ContentsStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.addfood = channel.unary_unary(
-        '/SmartFridge.src.main.python.Contents/addfood',
-        request_serializer=contents__pb2.food.SerializeToString,
-        response_deserializer=contents__pb2.food.FromString,
+    self.AddFood = channel.unary_unary(
+        '/Contents/AddFood',
+        request_serializer=contents__pb2.Food.SerializeToString,
+        response_deserializer=contents__pb2.FoodResp,
         )
 
 
@@ -25,7 +25,7 @@ class ContentsServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def addfood(self, request, context):
+  def AddFood(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -35,12 +35,12 @@ class ContentsServicer(object):
 
 def add_ContentsServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'addfood': grpc.unary_unary_rpc_method_handler(
-          servicer.addfood,
-          request_deserializer=contents__pb2.food.FromString,
-          response_serializer=contents__pb2.food.SerializeToString,
+      'AddFood': grpc.unary_unary_rpc_method_handler(
+          servicer.AddFood,
+          request_deserializer=contents__pb2.Food,
+          response_serializer=contents__pb2.FoodResp.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'SmartFridge.src.main.python.Contents', rpc_method_handlers)
+      'Contents', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
