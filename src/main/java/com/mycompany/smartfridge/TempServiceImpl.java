@@ -28,4 +28,17 @@ public class TempServiceImpl extends TempServiceGrpc.TempServiceImplBase{
         // call oncompleted when its done
         responseObserver.onCompleted();
     }
+    
+    @Override
+    public void increasetemp(Fridgetemp.TempRequest request, StreamObserver<Fridgetemp.TempReply> responseObserver){
+        System.out.println(request);
+        
+        Fridgetemp.TempReply response = Fridgetemp.TempReply.newBuilder()
+                .setOutput("Increased temp by: " + request.getTemp() + " degrees celsius")
+                .build();
+        
+        responseObserver.onNext(response);
+        
+        responseObserver.onCompleted();
+    }
 }
