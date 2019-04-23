@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.mycompany.smartfridge;
+
+import "google/protobuf/empty.proto";
+
+option java_outer_classname = "FridgeContentProto";
+
+service FridgeContent{
+    rpc GetDatedFood(google.protobuf.Empty) returns (stream FoodDate) {}
+}
+
+message FoodDate{
+    string name = 1;
+    int32 date = 2;
+}

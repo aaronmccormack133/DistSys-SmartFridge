@@ -1,6 +1,9 @@
 C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\TempDecreaseClient.java
 C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\TempServer.java
+C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\target\generated-sources\protobuf\grpc-java\com\mycompany\smartfridge\FridgeContentGrpc.java
 C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\target\generated-sources\protobuf\grpc-java\com\mycompany\smartfridge\TempServiceGrpc.java
-C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\TempServiceImpl.java
+C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\FridgeContentServer.java
 C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\TempClient.java
+C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\target\generated-sources\protobuf\java\com\mycompany\smartfridge\FridgeContentProto.java
+C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\src\main\java\com\mycompany\smartfridge\FridgeContentClient.java
 C:\Users\Aaron\Documents\School\yearFour\DistributedSys\SmartFridge\target\generated-sources\protobuf\java\com\mycompany\smartfridge\Fridgetemp.java
