@@ -7,13 +7,24 @@
 package com.mycompany.smartfridge;
 
 import io.grpc.*;
+import com.mycompany.smartfridge.TempGUI; 
 
 /**
  *
  * @author Aaron
  */
 public class TempClient {
+    protected TempGUI ui;
+    
     public static void main(String args[]) throws Exception {
+//        java.awt.EventQueue.invokeLater(new Runnable(){
+//            @Override
+//            public void run() {
+//                ui = new TempGUI(TempClient.this);
+//                ui.setVisible(true);
+//            }
+//            
+//        });
         final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
                 .usePlaintext(true)
                 .build();
@@ -29,4 +40,5 @@ public class TempClient {
         
         channel.shutdown();
     }
+    
 }

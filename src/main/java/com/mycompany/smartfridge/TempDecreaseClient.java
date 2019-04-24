@@ -9,6 +9,7 @@ import com.google.protobuf.Empty;
 import com.mycompany.smartfridge.Fridgetemp.*;
 import io.grpc.*;
 import java.util.Iterator;
+import com.mycompany.smartfridge.DecreaseTempGUI;
 
 /**
  *
@@ -16,19 +17,27 @@ import java.util.Iterator;
  */
 public class TempDecreaseClient {
 
+    protected DecreaseTempGUI ui;
     public static void main(String args[]) throws Exception {
 
 //        Fridgetemp.TempRequest request = Fridgetemp.TempRequest.newBuilder()
 //                .setTemp(1)
 //                .build();
-
         //Fridgetemp.TempReply response = stub.decreasetemp();
         //System.out.println(response);
         //channel.shutdown();     
         new TempDecreaseClient();
     }
-    
-    public TempDecreaseClient(){
+
+    public TempDecreaseClient() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                ui = new DecreaseTempGUI(TempDecreaseClient.this);
+                ui.setVisible(true);
+            }
+
+        });
         decreaseTemp();
     }
 
@@ -45,13 +54,12 @@ public class TempDecreaseClient {
                     Empty request = Empty.newBuilder().build();
 
                     Iterator<Decrease> response = stub.decreasetemp(request);
-                    while(response.hasNext()){
+                    while (response.hasNext()) {
                         System.out.println(response.next().toString());
                     }
                 }
-            }.start();            
-        }
-        catch (RuntimeException e){
+            }.start();
+        } catch (RuntimeException e) {
             System.out.println(e);
             return;
         }
